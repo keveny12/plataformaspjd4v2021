@@ -4,29 +4,43 @@ using UnityEngine;
 
 public class ZumbiEnemy : MonoBehaviour
 {
-    private Vector2 direcaoAndar;
+    [SerializeField] private float changeDirectionTime;
+    private Vector2 walkDirection;
+    private float _currentChangeTime;
+    private Animator enemyAI;
     
-    
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    public void SetWalkDirection (Vector2 direction){
+
+
+        walkDirection = direction;
+    }
+    public void MoveDirection(){
+
+        transform.Translate(walkDirection * Time.deltaTime); 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+    void Start(){
+
+        enemyAI = GetComponent<Animator>();
+    }
+  
+    void Update(){
+
         MoveDirection();
+        CountTime();
+
     }
 
-    public void SetdirecaoAndar(Vector2 direction)
-    {
-        direcaoAndar = direction;
-    }
+    public void CountTime(){
 
-    public void MoveDirection()
-    {
-        transform.Translate(direcaoAndar * Time.deltaTime);
+        if (_currentChangeTime <= changeDirectionTime){
+
+            _currentChangeTime += Time.deltaTime;
+      
+        }
+        else {
+            _currentChangeTime = 0; //mudar a direcao de andar
+            enemyAI.SetTrigger("Change Direction");
+        }
     }
 }

@@ -4,41 +4,42 @@ using UnityEngine;
 
 public class EnemyAIPatrulhaBehaviour : StateMachineBehaviour
 {
-    public float velocidade;
-    private Rigidbody2D rig;
-    public bool direcao = true;
-    
+   
+   // private EnemyIAController myEnemy;
     void Start()
     {
        // rig = GetComponent<Rigidbody2D>();
     }
     
-    void FixedUpdate()
+    void Update()
     {
         
-        if (direcao)
-        {
-            rig.velocity = Vector2.right * velocidade;
-        }
-        else
-        {
-            rig.velocity = Vector2.left * velocidade;
-        }
         
+        
+    }override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex){
+
+        //myEnemy = animator.GetComponent<EnemyIAController>();
+
+        if(Random.value < 0.5f){
+
+           // myEnemy.SetWalkDirection(Vector2.left);
+        }
+        else{
+            //myEnemy.SetWalkDirection(Vector2.right);
+        }
+
+
+
+    }
+
+    override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex){
+
+       // myEnemy.MoveDirection();
+        //myEnemy.CountTime();
+
     }
     
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("PontoA"))
-        {
-            direcao = !direcao;
-        }
-        if (other.gameObject.CompareTag("PontoB"))
-        {
-            direcao = !direcao;
-        }
-        
-    }
+   
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     //override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     //{
