@@ -5,10 +5,10 @@ using UnityEngine;
 public class EnemyAIPatrulhaBehaviour : StateMachineBehaviour
 {
    
-   // private EnemyIAController myEnemy;
+    private ZumbiEnemy myEnemy;
     void Start()
     {
-       // rig = GetComponent<Rigidbody2D>();
+        //rig = GetComponent<Rigidbody2D>();
     }
     
     void Update()
@@ -18,26 +18,27 @@ public class EnemyAIPatrulhaBehaviour : StateMachineBehaviour
         
     }override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex){
 
-        //myEnemy = animator.GetComponent<EnemyIAController>();
+        myEnemy = animator.GetComponent<ZumbiEnemy>();
 
         if(Random.value < 0.5f){
+            
 
-           // myEnemy.SetWalkDirection(Vector2.left);
+            myEnemy.SetWalkDirection(Vector2.left);
         }
         else{
-            //myEnemy.SetWalkDirection(Vector2.right);
+            myEnemy.SetWalkDirection(Vector2.right);
         }
 
 
 
     }
 
-    override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex){
+    //override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex){
 
        // myEnemy.MoveDirection();
-        //myEnemy.CountTime();
+       // myEnemy.CountTime();
 
-    }
+   // }
     
    
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state

@@ -68,8 +68,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 343bf3494d710b642a0f485db9a34eb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidade: 0
-  direcao: 1
 --- !u!1102 &-1289203966735809620
 AnimatorState:
   serializedVersion: 6
@@ -106,7 +104,19 @@ AnimatorController:
   m_PrefabAsset: {fileID: 0}
   m_Name: EnemyAIController
   serializedVersion: 5
-  m_AnimatorParameters: []
+  m_AnimatorParameters:
+  - m_Name: ' distancia i e p'
+    m_Type: 1
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
+  - m_Name: distancia i e m dos pontos
+    m_Type: 1
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -210,6 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef61c1e3debbc8f449b1dac737d5410f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  changeDirectionTime: 0
 --- !u!1102 &8718214064441980965
 AnimatorState:
   serializedVersion: 6
